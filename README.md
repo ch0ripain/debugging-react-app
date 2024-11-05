@@ -6,10 +6,7 @@
 
 The first method is to check the browser's error console. Here, you can find the type of error, the exact line of code, and other useful information that helps you locate and fix the issue.
 
-> [!TIP]
-> The console is your first go-to for quick details on any unexpected error.
-
-if we input a duration less than 1 (e.g., 0, -1), the app crashes and shows the following error in the console:
+If we input a duration less than 1 (e.g., 0, -1), the app crashes and shows the following error in the console:
 ```javascript
 Uncaught TypeError: Cannot read properties of undefined (reading 'valueEndOfYear') at Results (Results.jsx:12:16)
 ```
@@ -32,7 +29,7 @@ for (let i = 0; i < duration; i++) {
 }
 ```
 Since duration is 0, this loop never executes, leaving results empty, which leads to the error.
-Solution 🛠️
+#### Solution 🛠️
 To handle this, we have a couple of options:
 
 - Add validation in calculateInvestmentResults to check if duration is valid. If it isn’t, we could return a default value or a specific error message. However, this would add extra logic to the function, so it may not be the best approach.
@@ -43,6 +40,8 @@ if (results.length === 0) {
     return <p className="center">Invalid input data provided</p>;
 }
 ```
+> [!TIP]
+> The console is your first go-to for quick details on any unexpected error.
 
 ### 2. Browser Developer Tools 🧰
 
