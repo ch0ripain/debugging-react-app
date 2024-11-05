@@ -29,7 +29,6 @@ for (let i = 0; i < duration; i++) {
 }
 ```
 Since duration is 0, this loop never executes, leaving results empty, which leads to the error.
-
 #### Solution 🛠️
 To handle this, we have a couple of options:
 
