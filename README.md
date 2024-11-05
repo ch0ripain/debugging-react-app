@@ -34,6 +34,7 @@ To handle this, we have a couple of options:
 
 - Add validation in calculateInvestmentResults to check if duration is valid. If it isn’t, we could return a default value or a specific error message. However, this would add extra logic to the function, so it may not be the best approach.
 - Show a user-friendly message in the UI when duration is invalid. This approach informs the user about the error and suggests how to correct it, making it a better option.
+
 To implement this, we’ll add a condition in Results to catch the error and display a helpful message to guide the user:
 ```javascript
 if (results.length === 0) {
