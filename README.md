@@ -104,17 +104,37 @@ By clicking on a component, you can inspect its state, props, and functions, and
 
 ### 4. Strict Mode 🚨
 Another tool is Strict Mode, a component provided by the React library that helps identify potential issues in your app's logic. 
-To use it, you simply need to wrap your application (or specific parts of it) with <React.StrictMode>. 
+To use it, you simply need to wrap your application (or specific parts of it) with <StrictMode>. 
 This mode highlights unexpected behaviors, unsafe lifecycle methods, and deprecated features, making it easier to detect logic-related issues that could affect your app's stability.
 ```javascript
-import React from 'react';
+import { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
 
-function App() {
-  return (
-    <React.StrictMode>
-      {/* Your App Components */}
-    </React.StrictMode>
-  );
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+```
+If we declare results outside the component like this:
+```javascript
+const results = [];
+export default function Results({ input }) {
+    // some code...
+}
+```
+Because we’ve wrapped our app in Strict Mode, React renders components twice in development mode to help identify potential issues. 
+This double rendering reveals a problem: the results table repopulates twice, not due to Strict Mode itself, but because results isn’t re-initialized to an empty array on each render.
+Without Strict Mode, this issue might remain hidden until another action or code change triggers the error. Strict Mode, therefore, helps us catch these types of issues early.
+
+#### Solution 🛠️
+To fix this, simply move the const results = [] declaration inside the component:
+```javascript
+export default function Results({ input }) {
+const results = [];
+    // some code...
 }
 ```
 > [!TIP]
