@@ -30,7 +30,7 @@ for (let i = 0; i < duration; i++) {
 ```
 Since duration is 0, this loop never executes, leaving results empty, which leads to the error.
 
-#### Solution 🛠️**
+#### Solution 🛠️
 To handle this, we have a couple of options:
 
 - Add validation in calculateInvestmentResults to check if duration is valid. If it isn’t, we could return a default value or a specific error message. However, this would add extra logic to the function, so it may not be the best approach.
