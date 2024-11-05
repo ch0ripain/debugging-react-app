@@ -43,6 +43,6 @@ function App() {
 > [!TIP]
 > Enabling Strict Mode is especially useful in development, as it helps catch subtle bugs and ensures that your code follows React's best practices.
 
-I hope this help u 🐸
+<p align="center">I hope this helps u 🐸</p>
 ---
 
