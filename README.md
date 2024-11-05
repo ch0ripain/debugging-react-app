@@ -9,6 +9,41 @@ The first method is to check the browser's error console. Here, you can find the
 > [!TIP]
 > The console is your first go-to for quick details on any unexpected error.
 
+if we input a duration less than 1 (e.g., 0, -1), the app crashes and shows the following error in the console:
+```javascript
+Uncaught TypeError: Cannot read properties of undefined (reading 'valueEndOfYear') at Results (Results.jsx:12:16)
+```
+This error tells us exactly where to look in our code. On line 12 of Results.jsx, we have a constant that retrieves data from another function:
+```javascript
+const initialInvestment = 
+    results[0].valueEndOfYear - 
+    results[0].interest - 
+    results[0].annualInvestment;
+```
+The results variable is populated by calling:
+```javascript
+const results = [];
+calculateInvestmentResults(input, results);
+```
+When we take a look on calculateInvestmentResults, we see it contains a for loop that relies on duration as the iteration count:
+```javascript
+for (let i = 0; i < duration; i++) {
+    //some logic
+}
+```
+Since duration is 0, this loop never executes, leaving results empty, which leads to the error.
+Solution 🛠️
+To handle this, we have a couple of options:
+
+- Add validation in calculateInvestmentResults to check if duration is valid. If it isn’t, we could return a default value or a specific error message. However, this would add extra logic to the function, so it may not be the best approach.
+- Show a user-friendly message in the UI when duration is invalid. This approach informs the user about the error and suggests how to correct it, making it a better option.
+To implement this, we’ll add a condition in Results to catch the error and display a helpful message to guide the user:
+```javascript
+if (results.length === 0) {
+    return <p className="center">Invalid input data provided</p>;
+}
+```
+
 ### 2. Browser Developer Tools 🧰
 
 Another way is to leverage the browser’s developer tools, especially the **Source** tab. Here, you can see your entire project structure and navigate between files. 
