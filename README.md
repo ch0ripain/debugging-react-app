@@ -77,6 +77,7 @@ To troubleshoot further, let’s use the Source tab in the browser’s developer
 We can place a breakpoint to pause the app at the exact point where values change, allowing us to inspect the variables in real time.
 > [!TIP]
 >  Place breakpoints strategically to track data flow.
+
 ![breakpoint-source-example](https://github.com/user-attachments/assets/8f2671de-1865-4768-a550-d08a1a642c40)
 
 With the breakpoint in place, when we modify a value, we notice that the updated value is a string instead of a number. 
