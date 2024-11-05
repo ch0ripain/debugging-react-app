@@ -128,7 +128,8 @@ export default function Results({ input }) {
 Because we’ve wrapped our app in Strict Mode, React renders components twice in development mode to help identify potential issues. 
 This double rendering reveals a problem: the results table repopulates twice, not due to Strict Mode itself, but because results isn’t re-initialized to an empty array on each render.
 Without Strict Mode, this issue might remain hidden until another action or code change triggers the error. Strict Mode, therefore, helps us catch these types of issues early.
-
+> [!TIP]
+> Enabling Strict Mode is especially useful in development, as it helps catch subtle bugs and ensures that your code follows React's best practices.
 #### Solution 🛠️
 To fix this, simply move the const results = [] declaration inside the component:
 ```javascript
@@ -137,8 +138,6 @@ const results = [];
     // some code...
 }
 ```
-> [!TIP]
-> Enabling Strict Mode is especially useful in development, as it helps catch subtle bugs and ensures that your code follows React's best practices.
 
 ---
 <p align="center">🌟 This project is a practice exercise I learned from the <a href='https://www.udemy.com/course/react-the-complete-guide-incl-redux/?couponCode=ST7MT110524'>Academind's React Course</a> 🌟</p>
