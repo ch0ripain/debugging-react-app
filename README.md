@@ -29,7 +29,7 @@ for (let i = 0; i < duration; i++) {
 }
 ```
 Since duration is 0, this loop never executes, leaving results empty, which leads to the error.
-#### Solution 🛠️
+**#### Solution 🛠️**
 To handle this, we have a couple of options:
 
 - Add validation in calculateInvestmentResults to check if duration is valid. If it isn’t, we could return a default value or a specific error message. However, this would add extra logic to the function, so it may not be the best approach.
@@ -72,13 +72,12 @@ function handleChange(inputIdentifier, newValue) {
     });
 }
 ```
+#### Solution 🛠️
 To troubleshoot further, let’s use the Source tab in the browser’s developer tools. 
 We can place a breakpoint to pause the app at the exact point where values change, allowing us to inspect the variables in real time.
-
-![breakpoint-source-example](https://github.com/user-attachments/assets/8f2671de-1865-4768-a550-d08a1a642c40)
-
 > [!TIP]
 >  Place breakpoints strategically to track data flow.
+![breakpoint-source-example](https://github.com/user-attachments/assets/8f2671de-1865-4768-a550-d08a1a642c40)
 
 With the breakpoint in place, when we modify a value, we notice that the updated value is a string instead of a number. 
 > [!NOTE]
@@ -88,7 +87,7 @@ To fix this, we need to convert the incoming string values to numbers within the
 ```javascript
 [inputIdentifier]: +newValue
 ```
-With this adjustment, the table now displays the correct information, and the error is resolved.
+With this adjustment, the table now displays the correct information, and the error is fixed.
 
 ### 3. React Extensions 🔍
 
