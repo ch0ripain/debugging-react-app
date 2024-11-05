@@ -94,8 +94,12 @@ With this adjustment, the table now displays the correct information, and the er
 Use extensions like **React Developer Tools**. This tool allows you to see your entire component structure. 
 By clicking on a component, you can inspect its state, props, and functions, and even modify values in real-time to observe your app’s response.
 
+![react-tools-1](https://github.com/user-attachments/assets/9e34fcbc-0d5c-4191-8129-38aa1bff2858)
+
 > [!TIP]
 >  The **Components** view in React DevTools is ideal for analyzing each component's state and props throughout your app.
+
+![react-tools-2](https://github.com/user-attachments/assets/b216be95-7312-4e2e-8478-8e9646eac479)
 
 ### 4. Strict Mode 🚨
 Another tool is Strict Mode, a component provided by the React library that helps identify potential issues in your app's logic. 
