@@ -29,6 +29,8 @@ for (let i = 0; i < duration; i++) {
 }
 ```
 Since duration is 0, this loop never executes, leaving results empty, which leads to the error.
+> [!TIP]
+> The console is your first go-to for quick details on any unexpected error.
 #### Solution 🛠️
 To handle this, we have a couple of options:
 
@@ -41,8 +43,6 @@ if (results.length === 0) {
     return <p className="center">Invalid input data provided</p>;
 }
 ```
-> [!TIP]
-> The console is your first go-to for quick details on any unexpected error.
 
 ### 2. Browser Developer Tools 🧰
 
