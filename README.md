@@ -25,9 +25,26 @@ By clicking on a component, you can inspect its state, props, and functions, and
 > [!TIP]
 >  The **Components** view in React DevTools is ideal for analyzing each component's state and props throughout your app.
 
+### 4. Strict Mode 🚨
+Another tool is Strict Mode, a component provided by the React library that helps identify potential issues in your app's logic. 
+To use it, you simply need to wrap your application (or specific parts of it) with <React.StrictMode>. 
+This mode highlights unexpected behaviors, unsafe lifecycle methods, and deprecated features, making it easier to detect logic-related issues that could affect your app's stability.
+```javascript
+import React from 'react';
+
+function App() {
+  return (
+    <React.StrictMode>
+      {/* Your App Components */}
+    </React.StrictMode>
+  );
+}
+```
+> [!TIP]
+> Enabling Strict Mode is especially useful in development, as it helps catch subtle bugs and ensures that your code follows React's best practices.
 ## Conclusion 📝
 
-These three methods, combined with your programming logic and debugging experience, will make code troubleshooting faster and more efficient. 
+These four methods, combined with your programming logic and debugging experience, will make code troubleshooting faster and more efficient. 
 Additionally, they’ll give you a deeper understanding of your app.
 
 ---
