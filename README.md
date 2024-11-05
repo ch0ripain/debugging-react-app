@@ -49,8 +49,46 @@ if (results.length === 0) {
 Another way is to leverage the browser’s developer tools, especially the **Source** tab. Here, you can see your entire project structure and navigate between files. 
 With **breakpoints**, you can monitor values and follow the flow of your code, checking if data is correctly passed between components for example.
 
+If we change the value of the initial investment or annual investment, we notice that the table displays unusually large numbers. 
+But what’s causing this? The console shows no errors, so how can we identify the issue?
+
+When we reload the page, all data in the table appears correct, indicating that the investment calculation function and the Results component are working as expected. 
+However, when we adjust the initial or annual investment values, the table breaks.
+
+Upon inspecting the UserInput component, we find that it’s not managing state directly. Instead, it forwards props from App.jsx:
+```javascript
+export default function UserInput({ onChange, userInput })
+```
+In App.jsx, we see that handleChange is used to update values:
+```javascript
+<UserInput userInput={userInput} onChange={handleChange} />
+
+function handleChange(inputIdentifier, newValue) {
+    setUserInput((prevUserInput) => {
+        return {
+            ...prevUserInput,
+            [inputIdentifier]: newValue,
+        };
+    });
+}
+```
+To troubleshoot further, let’s use the Source tab in the browser’s developer tools. 
+We can place a breakpoint to pause the app at the exact point where values change, allowing us to inspect the variables in real time.
+
+![breakpoint-source-example](https://github.com/user-attachments/assets/8f2671de-1865-4768-a550-d08a1a642c40)
+
 > [!TIP]
->  Place breakpoints strategically to track data flow and better understand your app’s behavior.
+>  Place breakpoints strategically to track data flow.
+
+With the breakpoint in place, when we modify a value, we notice that the updated value is a string instead of a number. 
+> [!NOTE]
+> In JavaScript, values are treated as strings when combined with other strings, leading to concatenation instead of numeric addition (e.g., 202 + '101' becomes '202101')
+
+To fix this, we need to convert the incoming string values to numbers within the function that handles changes. We can do this by adding a + sign before newValue:
+```javascript
+[inputIdentifier]: +newValue
+```
+With this adjustment, the table now displays the correct information, and the error is resolved.
 
 ### 3. React Extensions 🔍
 
