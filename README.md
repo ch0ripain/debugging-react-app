@@ -1,4 +1,4 @@
-<h1 align="center">🐛 Debugging React App</h1> 
+<h1 align="center">🐛 Debugging React App 🐛</h1> 
 
 ## Debugging Methods 🛠
 
