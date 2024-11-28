@@ -1,6 +1,6 @@
 <h1 align="center">🐛 Debugging React App</h1> 
 
-## Debugging Methods
+## Debugging Methods 🛠
 
 ### 1. Using the Browser Console 🖥️
 
